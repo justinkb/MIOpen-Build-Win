@@ -47,7 +47,10 @@ unset(_cmake_expected_targets)
 
 
 # Compute the installation prefix relative to this file.
-set(_IMPORT_PREFIX "$ENV{HIP_PATH}")
+get_filename_component(_IMPORT_PREFIX "${CMAKE_CURRENT_LIST_FILE}" PATH)
+get_filename_component(_IMPORT_PREFIX "${_IMPORT_PREFIX}" PATH)
+get_filename_component(_IMPORT_PREFIX "${_IMPORT_PREFIX}" PATH)
+get_filename_component(_IMPORT_PREFIX "${_IMPORT_PREFIX}" PATH)
 if(_IMPORT_PREFIX STREQUAL "/")
   set(_IMPORT_PREFIX "")
 endif()
@@ -56,7 +59,8 @@ endif()
 add_library(amd_comgr SHARED IMPORTED)
 
 set_target_properties(amd_comgr PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "C:/dev/rocm-includes/include"
+  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
+  INTERFACE_LINK_OPTIONS "-pthread"
 )
 
 # Load information for each installed configuration.
