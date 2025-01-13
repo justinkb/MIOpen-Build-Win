@@ -1,0 +1,33 @@
+/*
+    Copyright (c) 2022 Advanced Micro Devices, Inc. All rights reserved.
+*/
+
+#ifndef @include_guard@
+#define @include_guard@
+
+#if defined(ROCM_NO_WRAPPER_HEADER_WARNING) || defined(ROCM_@ITEM_GUARD@_GAVE_WARNING)
+/* include file */
+#include "@file_rel_path@"
+#else
+#ifndef ROCM_HEADER_WRAPPER_WERROR
+#define ROCM_HEADER_WRAPPER_WERROR @deprecated_error@
+#endif
+#if ROCM_HEADER_WRAPPER_WERROR  /* ROCM_HEADER_WRAPPER_WERROR 1 */
+#error "This file is deprecated. Use the header file from @header_location@ by using #include <@correct_include@>"
+#else  /* ROCM_HEADER_WRAPPER_WERROR 0 */
+/* give warning */
+#if defined(_MSC_VER)
+#pragma message(": warning:This file is deprecated. Use the header file from @header_location@ by using #include <@correct_include@>")
+#elif defined(__GNUC__)
+#warning "This file is deprecated. Use the header file from @header_location@ by using #include <@correct_include@>"
+#endif
+#endif  /* ROCM_HEADER_WRAPPER_WERROR */
+/* include file */
+#define ROCM_@ITEM_GUARD@_GAVE_WARNING
+#include "@file_rel_path@"
+#undef ROCM_@ITEM_GUARD@_GAVE_WARNING
+#endif /* defined(ROCM_NO_WRAPPER_HEADER_WARNING) || defined(ROCM_@ITEM_GUARD@_GAVE_WARNING) */
+
+#endif /* @include_guard@ */
+
+@original_contents_section@
