@@ -33,6 +33,7 @@ The last two directories contain (sometimes slightly patched versions of) a few 
 You can easily check out what changes were made by diffing.
 From the CMake files, only some of the amd_comgr bits were patched.
 From the include files, nothing needed patching. (It's actually just one missing file that was needed.)
+Commit b541f855b6b79a29fc3681fc6ea78c2f66d49d96 on this repository shows you all changes made.
 
 ```
 docker cp .\AMD-Software-PRO-Edition-24.Q4-Win10-Win11-For-HIP.exe miopen-build:\dev
