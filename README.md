@@ -30,7 +30,8 @@ exit
 Back on the host, there's some stuff you will need to manually download and copy over.
 Make sure you accept the licenses of all this stuff.
 The last two directories contain (sometimes slightly patched versions of) a few missing CMake and header files from a Linux install of ROCm 6.2.3.
-You can easily check out what changes were made by diffing. From the CMake files, only some of the amd_comgr bits were patched.
+You can easily check out what changes were made by diffing.
+From the CMake files, only some of the amd_comgr bits were patched.
 From the include files, nothing needed patching. (It's actually just one missing file that was needed.)
 
 ```
@@ -102,6 +103,8 @@ mkdir .\half-pkg\include\half\
 copy .\half\include\half.hpp .\half-pkg\include\half\
 git clone --branch rocm-6.2.4 --recursive https://github.com/ROCm/MIOpen.git
 ```
+
+## Readying the build
 
 ### Enter the PowerShell and source the VS Dev Shell stuff
 
