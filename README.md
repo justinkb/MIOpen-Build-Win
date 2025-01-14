@@ -118,7 +118,6 @@ Now we are in the PowerShell environment.
 ```
 cd "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\"
 .\Launch-VsDevShell.ps1 -Arch amd64
-cd \dev\
 ```
 
 ### Make Perl available and install dependencies using vcpkg
@@ -128,6 +127,7 @@ We set some environment variables to ensure we use vcpkg in classic mode for eas
 We install sqlite3, bzip2, nlohmann_json and zstd packages with vcpkg.
 
 ```
+cd \dev\
 Add-Type -Assembly "System.IO.Compression.Filesystem"
 [System.IO.Compression.ZipFile]::ExtractToDirectory("c:\dev\perl.zip", "c:\dev\perl")
 $env:PATH="c:\dev\vcpkg;${env:PATH}"
