@@ -162,7 +162,7 @@ cd .\MIOpen\
 cmake -G Ninja `
     -DCMAKE_C_COMPILER:FILEPATH="${env:HIP_PATH}bin\clang.exe" `
     -DCMAKE_CXX_COMPILER:FILEPATH="${env:HIP_PATH}bin\clang++.exe" `
-    -DCMAKE_HIP_ARCHITECTURES:STRING="gfx1100" `
+    -DAMDGPU_TARGETS:STRING="gfx1100" `
     -DCMAKE_BUILD_TYPE:STRING="Release" `
     -DCMAKE_PREFIX_PATH:STRING="C:\Program Files\AMD\ROCm\6.2;C:\dev\rocm-cmake;C:\dev\vcpkg\packages\sqlite3_x64-windows-release;C:\dev\vcpkg\packages\bzip2_x64-windows-release;C:\dev\vcpkg\packages\nlohmann-json_x64-windows-release;C:\dev\boost_1_87_0\stage;c:\dev\vcpkg\packages\zstd_x64-windows-release" `
     -DMIOPEN_USE_COMPOSABLEKERNEL:BOOL=FALSE `
